@@ -247,21 +247,21 @@ def gravitational_press_drop(WOR, SGo, SGw, l):
 def main():
     st.title('Pressure Drop Calculator')
 
-    Qo = st.number_input('Oil flow rate', value=1000)
-    Qw = st.number_input('Water flow rate', value=500)
-    Qg = st.number_input('Gas flow rate', value=200)
-    GLR = st.number_input('Gas-Liquid Ratio', value=5000)
+    Qo = st.number_input('Oil flow rate(in stb/day)', value=1000)
+    Qw = st.number_input('Water flow rate(in stb/day)', value=500)
+    Qg = st.number_input('Gas flow rate(in stb/day)', value=200)
+    GLR = st.number_input('Gas-Liquid Ratio(in scf/stb)', value=5000)
     SGo = st.number_input('Oil Specific Gravity', value=0.8)
     SGg = st.number_input('Gas Specific Gravity', value=0.65)
     SGw = st.number_input('Water Specific Gravity', value=1)
-    API = st.number_input('API', value=30)
-    T1 = st.number_input('Temperature at tubing entrance', value=70)
-    T2 = st.number_input('Temperature at end of tubing', value=80)
-    P1 = st.number_input('Pressure at the tubing entrance', value=2000)
-    P2 = st.number_input('Pressure at the end of tubing', value=1500)
-    l = st.number_input('Length of tubing', value=100)
+    API = st.number_input('API(in degrees)', value=30)
+    T1 = st.number_input('Temperature at tubing entrance(in degrees Fahrenheit)', value=70)
+    T2 = st.number_input('Temperature at end of tubing(in degrees Fahrenheit)', value=80)
+    P1 = st.number_input('Pressure at the tubing entrance(in psia)', value=2000)
+    P2 = st.number_input('Pressure at the end of tubing(in psia)', value=1500)
+    l = st.number_input('Length of tubing(in feet)', value=100)
     WOR = Qw / Qo
-    D = st.number_input('Tubing Diameter', value=10)
+    D = st.number_input('Tubing Diameter(in inches)', value=10)
 
     if st.button('Calculate'):
         frictional_losses= int(frictional_press_drop(P1,P2,SGg,WOR,SGo,SGw,Qg,D,Qo,Qw,T1,T2,API,GLR,l))
